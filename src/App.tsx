@@ -1,37 +1,25 @@
 import './App.css';
-import { GameState, useGameData } from './context/GameState';
+import { useGameData } from './context/GameState';
 import Game from './components/Game';
 import Header from './components/Header';
 import { useState } from 'react';
 import Modal from './components/Modal';
 import BonusGame from './components/BonusGame';
 import BonusGameButton from './components/BonusGameButton';
+import ModalButton from './components/ModalButton';
 
 function App() {
 	const [state, dispatch] = useGameData();
 	const [showModal, setShowModal] = useState<boolean>(false);
 
 	return (
-		<GameState>
-			<main className='App'>
-				<Header />
-				<Game />
-				<Modal showModal={showModal} setShowModal={setShowModal} />
-				<button
-					className='button rules'
-					onClick={() => setShowModal(!showModal)}>
-					Rules
-				</button>
-				{/* <button
-					className='button switch-mode'
-					disabled={state.isUserPicked}
-					onClick={switchGameMode}>
-					{state.mode === 'classic' ? 'Bonus Mode' : 'Classic Mode'}
-				</button> */}
-				{state.mode}
-				<BonusGameButton />
-			</main>
-		</GameState>
+		<main className='App'>
+			<Header />
+			{state.mode === 'classic' ? <Game /> : <BonusGame />}
+			<Modal showModal={showModal} setShowModal={setShowModal} />
+			<ModalButton showModal={showModal} setShowModal={setShowModal} />
+			<BonusGameButton />
+		</main>
 	);
 }
 
