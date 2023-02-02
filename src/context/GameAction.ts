@@ -50,3 +50,9 @@ export const replay = (dispatch: Dispatch<ReducerAction>): void => {
     type: REDUCER_ACTION_TYPE.REPLAY
   })
 }
+
+export const switchMode = (dispatch: Dispatch<ReducerAction>): void => {
+  return dispatch({
+    type: REDUCER_ACTION_TYPE.SWITCH_MODE
+  })
+}

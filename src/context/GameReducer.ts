@@ -7,11 +7,12 @@ export type State = {
   result: string,
   isUserPicked: boolean,
   isHousePicked: boolean,
+  mode: string
 }
 
 const initialScore = parseInt(fetchResult());
 
-export const initialState: State = { score: initialScore, userPick: '', housePick: '', result: '', isUserPicked: false, isHousePicked: false };
+export const initialState: State = { score: initialScore, userPick: '', housePick: '', result: '', isUserPicked: false, isHousePicked: false, mode: 'classic' };
 
 export const enum REDUCER_ACTION_TYPE {
 	INCREMENT,
@@ -21,7 +22,8 @@ export const enum REDUCER_ACTION_TYPE {
   RESULT,
   IS_USER_PICKED,
   IS_HOUSE_PICKED,
-  REPLAY
+  REPLAY,
+  SWITCH_MODE,
 }
 
 export type ReducerAction = {
@@ -56,6 +58,12 @@ export default (state: typeof initialState,
         return { ...state, isHousePicked: true };
       case REDUCER_ACTION_TYPE.REPLAY:
         return { ...state, userPick: '', housePick: '', result: '', isUserPicked: false, isHousePicked: false };
+      case REDUCER_ACTION_TYPE.SWITCH_MODE:
+        {
+          const newMode = state.mode === 'classic' ? 'bonus' : 'classic'
+          console.log(newMode);
+          return { ...state, mode: newMode}
+        }
       default:
         throw new Error();
     }

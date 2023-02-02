@@ -14,15 +14,25 @@
   padding: 2rem;
 }
 
-.rules-button {
+.button {
   background: transparent;
   border: 2px solid white;
   font-size: 1.25rem;
   font-weight: 700;
   padding: 0.75rem 3rem;
   border-radius: 10px;
+  cursor: pointer;
+}
+
+.rules, .switch-mode {
   position: absolute;
   bottom: 3rem;
+}
+
+.rules {
   right: 3rem;
-  cursor: pointer;
+}
+
+.switch-mode {
+  left: 3rem;
 }
