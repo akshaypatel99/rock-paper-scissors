@@ -1,4 +1,4 @@
-import { fetchResult, generateResult, saveResult } from "../game";
+import { fetchGame, generateResult, saveGame } from "../game";
 
 export type State = {
   score: number,
@@ -10,9 +10,12 @@ export type State = {
   mode: string
 }
 
-const initialScore = parseInt(fetchResult());
+const { score, mode } = fetchGame();
 
-export const initialState: State = { score: initialScore, userPick: '', housePick: '', result: '', isUserPicked: false, isHousePicked: false, mode: 'classic' };
+const initialScore = parseInt(score) || 0;
+const initialMode = mode || 'classic';
+
+export const initialState: State = { score: initialScore, userPick: '', housePick: '', result: '', isUserPicked: false, isHousePicked: false, mode: initialMode };
 
 export const enum REDUCER_ACTION_TYPE {
 	INCREMENT,
@@ -37,13 +40,13 @@ export default (state: typeof initialState,
       case REDUCER_ACTION_TYPE.INCREMENT:
         {
           const newScore = state.score + 1;
-          saveResult(newScore);
+          saveGame(newScore, state.mode);
           return { ...state, score: newScore };
         }
       case REDUCER_ACTION_TYPE.DECREMENT:
         {
           const newScore = state.score - 1;
-          saveResult(newScore);
+          saveGame(newScore, state.mode);
           return { ...state, score: newScore };
         }
       case REDUCER_ACTION_TYPE.USER_PICK:

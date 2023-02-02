@@ -29,14 +29,21 @@ export function generateResult(userPick: string, housePick: string) {
   }
 }
 
-export function saveResult(score: number) {
-  return localStorage.setItem("rps_score", JSON.stringify(score));
+export function saveGame(score: number, mode: string) {
+  localStorage.setItem(`rps_score_${mode}`, JSON.stringify(score));
+  localStorage.setItem("rps_mode", JSON.stringify(mode));
+  return;
 }
 
-export function fetchResult() {
-  const savedScore: string = localStorage.getItem("rps_score") || "0";
-  const score: string = JSON.parse(savedScore);
-  return score;
+export function fetchGame() {
+  const savedMode = localStorage.getItem("rps_mode") || '""';
+  const savedScore = localStorage.getItem(`rps_score_${savedMode}`) || '""';
+  const currentMode: string = JSON.parse(savedMode);
+  const currentScore: string = JSON.parse(savedScore);
+  return {
+    score: currentScore ?? "0",
+    mode: currentMode ?? 'classic'
+  }
 }
 
 export function generateBonusResult(userPick: string, housePick: string) {
