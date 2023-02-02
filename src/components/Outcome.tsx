@@ -1,6 +1,11 @@
 import { useEffect } from 'react';
 import { useGameData } from '../context/GameState';
-import { decrementScore, incrementScore, replay } from '../context/GameAction';
+import {
+	decrementScore,
+	incrementScore,
+	replay,
+	saveGame,
+} from '../context/GameAction';
 import styles from './Outcome.module.css';
 
 export default function Outcome() {
@@ -12,6 +17,7 @@ export default function Outcome() {
 		} else if (state.result === 'You Lose') {
 			decrementScore(dispatch);
 		} else if (state.result === "It's a draw") {
+			saveGame(dispatch);
 			return;
 		} else {
 			throw new Error('Outcome error');

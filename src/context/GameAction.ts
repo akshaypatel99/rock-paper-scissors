@@ -45,6 +45,12 @@ export const decrementScore = (dispatch: Dispatch<ReducerAction>): void => {
   })
 }
 
+export const saveGame = (dispatch: Dispatch<ReducerAction>): void => {
+  return dispatch({
+    type: REDUCER_ACTION_TYPE.SAVE
+  })
+}
+
 export const replay = (dispatch: Dispatch<ReducerAction>): void => {
   return dispatch({
     type: REDUCER_ACTION_TYPE.REPLAY

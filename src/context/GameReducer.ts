@@ -27,6 +27,7 @@ export const enum REDUCER_ACTION_TYPE {
   IS_HOUSE_PICKED,
   REPLAY,
   SWITCH_MODE,
+  SAVE
 }
 
 export type ReducerAction = {
@@ -67,6 +68,9 @@ export default (state: typeof initialState,
           console.log(newMode);
           return { ...state, mode: newMode}
         }
+      case REDUCER_ACTION_TYPE.SAVE:
+        saveGame(state.score, state.mode);
+        return state;
       default:
         throw new Error();
     }
