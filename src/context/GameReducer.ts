@@ -1,4 +1,4 @@
-import { fetchGame, generateResult, saveGame } from "../game";
+import { fetchGame, generateResult, saveGame, switchMode } from "../game";
 
 export type State = {
   score: number,
@@ -65,8 +65,8 @@ export default (state: typeof initialState,
       case REDUCER_ACTION_TYPE.SWITCH_MODE:
         {
           const newMode = state.mode === 'classic' ? 'bonus' : 'classic'
-          console.log(newMode);
-          return { ...state, mode: newMode}
+          const newScore = switchMode(newMode);
+          return { ...state, mode: newMode, score: parseInt(newScore)}
         }
       case REDUCER_ACTION_TYPE.SAVE:
         saveGame(state.score, state.mode);
