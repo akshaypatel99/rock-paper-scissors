@@ -1,0 +1,28 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.App {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5rem;
+  padding: 2rem;
+}
+
+.rules-button {
+  background: transparent;
+  border: 2px solid white;
+  font-size: 1.25rem;
+  font-weight: 700;
+  padding: 0.75rem 3rem;
+  border-radius: 10px;
+  position: absolute;
+  bottom: 3rem;
+  right: 3rem;
+  cursor: pointer;
+}

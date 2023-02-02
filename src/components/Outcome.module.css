@@ -1,0 +1,29 @@
+.outcome {
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3rem;
+  margin-inline: 5rem;
+}
+
+.outcome_result {
+  font-size: 4rem;
+  font-weight: 700;
+}
+
+.outcome_button {
+  background-color: white;
+  color: var(--dark-text);
+  padding: 1rem;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.25ch;
+  transition: all 200ms ease-in-out;
+  cursor: pointer;
+}
+
+.outcome_button:hover {
+  color: hsl(349, 70%, 56%);
+}

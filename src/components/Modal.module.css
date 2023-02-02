@@ -1,0 +1,31 @@
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 2.5rem;
+  border-radius: 10px;
+}
+
+.modal::backdrop {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.modal_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.5rem;
+}
+
+.modal_title {
+  color: var(--dark-text);
+  font-size: 2rem;
+}
+
+.modal_close {
+  background: transparent;
+  cursor: pointer;
+}
+
