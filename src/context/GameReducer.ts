@@ -1,4 +1,4 @@
-import { fetchGame, generateResult, saveGame, switchMode } from "../game";
+import { fetchGame, generateBonusResult, generateResult, saveGame, switchMode } from "../game";
 
 export type State = {
   score: number,
@@ -55,7 +55,15 @@ export default (state: typeof initialState,
       case REDUCER_ACTION_TYPE.HOUSE_PICK:
         return { ...state, housePick: action.payload ?? '' };
       case REDUCER_ACTION_TYPE.RESULT:
-        return { ...state, result: generateResult(state.userPick, state.housePick) ?? '' };
+        {
+          if (state.mode === 'classic') {
+            const newResult = generateResult(state.userPick, state.housePick) ?? ''
+            return { ...state, result: newResult };
+          } else {
+            const newBonusResult = generateBonusResult(state.userPick, state.housePick) ?? ''
+            return { ...state, result: newBonusResult };
+          }
+        }
       case REDUCER_ACTION_TYPE.IS_USER_PICKED:
         return { ...state, isUserPicked: true };
       case REDUCER_ACTION_TYPE.IS_HOUSE_PICKED:
