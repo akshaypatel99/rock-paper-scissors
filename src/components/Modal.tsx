@@ -1,12 +1,14 @@
 import React, { useEffect, useRef } from 'react';
 import styles from './Modal.module.css';
+import { useGameData } from '../context/GameState';
 
-type ModalProps = {
+export type ModalProps = {
 	showModal: boolean;
 	setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 export default function Modal({ showModal, setShowModal }: ModalProps) {
+	const [state, dispatch] = useGameData();
 	const ref: any = useRef(null);
 
 	useEffect(() => {
@@ -30,7 +32,11 @@ export default function Modal({ showModal, setShowModal }: ModalProps) {
 			</header>
 			<img
 				className={styles.modal_img}
-				src='/images/image-rules.svg'
+				src={
+					state.mode === 'classic'
+						? '/images/image-rules.svg'
+						: '/images/image-rules-bonus.svg'
+				}
 				alt='Rock beats scissors, scissors beats paper, paper beats rock'
 			/>
 		</dialog>

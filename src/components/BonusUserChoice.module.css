@@ -1,0 +1,40 @@
+.choice_container {
+  width: 480px;
+  aspect-ratio: 1;
+  background-image: url('/images/bg-pentagon.svg');
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: 80%;
+  position: relative;
+}
+
+.choice_container > div {
+  position: absolute;
+  z-index: 5;
+}
+
+.choice_container > div:first-child {
+  top: 20%;
+  left: -5%;
+  transform: translate(5%, 20%);
+}
+.choice_container > div:nth-child(2) {
+  bottom: 0;
+  left: 20%;
+  transform: translateX(-20%);
+}
+.choice_container > div:nth-child(3) {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.choice_container > div:nth-child(4) {
+  bottom: 0;
+  right: 20%;
+  transform: translateX(20%);
+}
+.choice_container > div:last-child {
+  top: 20%;
+  right: -5%;
+  transform: translate(-5%, 20%);
+}

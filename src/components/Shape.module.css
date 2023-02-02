@@ -35,6 +35,12 @@
 .button[data-shape='scissors']::before {
   background: var(--scissors-gradient);
 }
+.button[data-shape='spock']::before {
+  background: var(--spock-gradient);
+}
+.button[data-shape='lizard']::before {
+  background: var(--lizard-gradient);
+}
 .button[data-winner="true"]{
   box-shadow: inset 0px 10px 2px hsla(0, 0%, 0%, 0.2), 0px 0px 0px 80px hsla(0, 0%, 100%, 0.07), 0px 0px 0px 130px hsla(0, 0%, 100%, 0.05), 0px 0px 0px 180px hsla(0, 0%, 100%, 0.025)
 }
@@ -54,4 +60,12 @@
 
 .button[data-pick='true']::before {
   width: 300px;
+}
+
+/* Bonus */
+.button[data-bonus='true'] {
+  width: 140px;
+}
+.button[data-bonus='true']::before {
+  width: 180px;
 }

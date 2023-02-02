@@ -7,9 +7,15 @@ type ShapeProps = {
 	shapeOption: string;
 	isWinner?: boolean;
 	isPick: boolean;
+	isBonus?: boolean;
 };
 
-export default function Shape({ shapeOption, isWinner, isPick }: ShapeProps) {
+export default function Shape({
+	shapeOption,
+	isWinner,
+	isPick,
+	isBonus,
+}: ShapeProps) {
 	const [state, dispatch] = useContext(GameContext);
 
 	let img;
@@ -30,6 +36,7 @@ export default function Shape({ shapeOption, isWinner, isPick }: ShapeProps) {
 			data-shape={shapeOption}
 			data-winner={isWinner}
 			data-pick={isPick}
+			data-bonus={isBonus}
 			disabled={isPick}
 			onClick={userSelects}>
 			<span className='sr-only'>{shapeOption}</span>
