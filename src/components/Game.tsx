@@ -1,4 +1,3 @@
-import React from 'react';
 import { useGameData } from '../context/GameState';
 import UserChoice from './UserChoice';
 import Result from './Result';

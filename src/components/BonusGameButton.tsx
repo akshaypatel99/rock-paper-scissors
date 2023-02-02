@@ -1,4 +1,3 @@
-import React from 'react';
 import { useGameData } from '../context/GameState';
 import { switchMode } from '../context/GameAction';
 
