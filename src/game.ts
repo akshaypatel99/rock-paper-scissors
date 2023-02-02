@@ -37,13 +37,26 @@ export function saveGame(score: number, mode: string) {
 
 export function fetchGame() {
   const savedMode = localStorage.getItem("rps_mode") || '""';
-  const savedScore = localStorage.getItem(`rps_score_${savedMode}`) || '""';
   const currentMode: string = JSON.parse(savedMode);
+
+  const savedScore = localStorage.getItem(`rps_score_${currentMode}`) || '""';
   const currentScore: string = JSON.parse(savedScore);
+  
   return {
-    score: currentScore ?? "0",
-    mode: currentMode ?? 'classic'
+    score: currentScore.length !== 0 ? currentScore : "0",
+    mode: currentMode.length !== 0 ? currentMode: 'classic'
   }
+}
+
+export function switchMode(newMode: string) {
+  localStorage.setItem("rps_mode", JSON.stringify(newMode));
+  if (!localStorage.getItem(`rps_score_${newMode}`)) {
+    localStorage.setItem(`rps_score_${newMode}`, JSON.stringify(0));
+  }
+  const savedScore = localStorage.getItem(`rps_score_${newMode}`) || '""';
+  const currentScore: string = JSON.parse(savedScore);
+
+  return currentScore.length !== 0 ? currentScore : "0";
 }
 
 export function generateBonusResult(userPick: string, housePick: string) {
