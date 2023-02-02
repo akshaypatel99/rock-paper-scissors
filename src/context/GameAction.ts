@@ -45,8 +45,8 @@ export const decrementScore = (dispatch: Dispatch<ReducerAction>): void => {
   })
 }
 
-export const reset = (dispatch: Dispatch<ReducerAction>): void => {
+export const replay = (dispatch: Dispatch<ReducerAction>): void => {
   return dispatch({
-    type: REDUCER_ACTION_TYPE.RESET
+    type: REDUCER_ACTION_TYPE.REPLAY
   })
 }

@@ -1,4 +1,4 @@
-import { generateResult } from "../game";
+import { fetchResult, generateResult, saveResult } from "../game";
 
 export type State = {
   score: number,
@@ -9,7 +9,9 @@ export type State = {
   isHousePicked: boolean,
 }
 
-export const initialState: State = { score: 0, userPick: '', housePick: '', result: '', isUserPicked: false, isHousePicked: false };
+const initialScore = parseInt(fetchResult());
+
+export const initialState: State = { score: initialScore, userPick: '', housePick: '', result: '', isUserPicked: false, isHousePicked: false };
 
 export const enum REDUCER_ACTION_TYPE {
 	INCREMENT,
@@ -19,7 +21,7 @@ export const enum REDUCER_ACTION_TYPE {
   RESULT,
   IS_USER_PICKED,
   IS_HOUSE_PICKED,
-  RESET
+  REPLAY
 }
 
 export type ReducerAction = {
@@ -31,9 +33,17 @@ export default (state: typeof initialState,
   action: ReducerAction): typeof initialState => {
     switch (action.type) {
       case REDUCER_ACTION_TYPE.INCREMENT:
-        return { ...state, score: state.score + 1 };
+        {
+          const newScore = state.score + 1;
+          saveResult(newScore);
+          return { ...state, score: newScore };
+        }
       case REDUCER_ACTION_TYPE.DECREMENT:
-        return { ...state, score: state.score - 1 };
+        {
+          const newScore = state.score - 1;
+          saveResult(newScore);
+          return { ...state, score: newScore };
+        }
       case REDUCER_ACTION_TYPE.USER_PICK:
         return { ...state, userPick: action.payload ?? '' };
       case REDUCER_ACTION_TYPE.HOUSE_PICK:
@@ -44,7 +54,7 @@ export default (state: typeof initialState,
         return { ...state, isUserPicked: true };
       case REDUCER_ACTION_TYPE.IS_HOUSE_PICKED:
         return { ...state, isHousePicked: true };
-      case REDUCER_ACTION_TYPE.RESET:
+      case REDUCER_ACTION_TYPE.REPLAY:
         return { ...state, userPick: '', housePick: '', result: '', isUserPicked: false, isHousePicked: false };
       default:
         throw new Error();
