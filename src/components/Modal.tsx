@@ -12,16 +12,27 @@ export default function Modal({ showModal, setShowModal }: ModalProps) {
 	const ref: any = useRef(null);
 
 	useEffect(() => {
+		function handleEscapeModal(event: KeyboardEvent) {
+			if (event.key === 'Escape') {
+				setShowModal(!showModal);
+			}
+			return;
+		}
+
+		window.addEventListener('keydown', handleEscapeModal);
+
 		if (showModal) {
 			ref.current?.showModal();
 		} else {
 			ref.current?.close();
 		}
+
+		return () => window.removeEventListener('keydown', handleEscapeModal);
 	}, [showModal]);
 
 	return (
 		<dialog ref={ref} className={styles.modal}>
-			<header className={styles.modal_header}>
+			<section className={styles.modal_container}>
 				<h2 className={styles.modal_title}>Rules</h2>
 				<button
 					className={styles.modal_close}
@@ -29,16 +40,17 @@ export default function Modal({ showModal, setShowModal }: ModalProps) {
 					<img src='/images/icon-close.svg' alt='' />
 					<span className='sr-only'>Close Modal</span>
 				</button>
-			</header>
-			<img
-				className={styles.modal_img}
-				src={
-					state.mode === 'classic'
-						? '/images/image-rules.svg'
-						: '/images/image-rules-bonus.svg'
-				}
-				alt='Rock beats scissors, scissors beats paper, paper beats rock'
-			/>
+
+				<img
+					className={styles.modal_img}
+					src={
+						state.mode === 'classic'
+							? '/images/image-rules.svg'
+							: '/images/image-rules-bonus.svg'
+					}
+					alt='Rock beats scissors, scissors beats paper, paper beats rock'
+				/>
+			</section>
 		</dialog>
 	);
 }
