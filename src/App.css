@@ -10,29 +10,52 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 5rem;
   padding: 2rem;
 }
 
 .button {
   background: transparent;
-  border: 2px solid white;
-  font-size: 1.25rem;
+  border: 1px solid white;
+  font-size: var(--button-font-size);
   font-weight: 700;
-  padding: 0.75rem 3rem;
+  padding: 0.5rem 2rem;
   border-radius: 10px;
   cursor: pointer;
 }
 
 .rules, .switch-mode {
   position: absolute;
-  bottom: 3rem;
+  bottom: 2rem;
 }
 
 .rules {
-  right: 3rem;
+  right: 2rem;
 }
 
 .switch-mode {
-  left: 3rem;
+  left: 2rem;
+}
+
+.switch-mode[data-disabled='true']{
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+@media (min-width: 768px){
+  .button {
+    border: 2px solid white;
+    padding: 0.75rem 3rem;
+  }
+
+  .rules, .switch-mode {
+    bottom: 3rem;
+  }
+  
+  .rules {
+    right: 3rem;
+  }
+  
+  .switch-mode {
+    left: 3rem;
+  }
 }

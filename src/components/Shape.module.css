@@ -1,12 +1,12 @@
 .button {
-  width: 180px;
+  width: var(--shape-width);
   aspect-ratio: 1;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: white;
-  box-shadow: inset 0px 10px 2px hsla(0, 0%, 0%, 0.2);
+  box-shadow: var(--shadow-inset);
   cursor: pointer;
   transition: scale 200ms ease-in-out;
   position: relative;
@@ -15,10 +15,10 @@
 .button::before {
   content: '';
   display: block;
-  width: 240px;
+  width: var(--shape-frame-width);
   aspect-ratio: 1;
   border-radius: 50%;
-  box-shadow: inset 0px -12px 2px hsla(0, 0%, 0%, 0.2);
+  box-shadow: var(--shadow-frame-inset);
   position: absolute;
   z-index: -1;
 }
@@ -42,7 +42,7 @@
   background: var(--lizard-gradient);
 }
 .button[data-winner="true"]{
-  box-shadow: inset 0px 10px 2px hsla(0, 0%, 0%, 0.2), 0px 0px 0px 80px hsla(0, 0%, 100%, 0.07), 0px 0px 0px 130px hsla(0, 0%, 100%, 0.05), 0px 0px 0px 180px hsla(0, 0%, 100%, 0.025)
+  box-shadow: var(--shadow-winner);
 }
 
 .shape {
@@ -54,18 +54,18 @@
 /* Pick */
 
 .button[data-pick='true'] {
-  width: 240px;
+  width: var(--shape-pick-width);
   cursor: auto;
 }
 
 .button[data-pick='true']::before {
-  width: 300px;
+  width: var(--shape-pick-frame-width);
 }
 
 /* Bonus */
 .button[data-bonus='true'] {
-  width: 140px;
+  width: var(--shape-bonus-width);
 }
 .button[data-bonus='true']::before {
-  width: 180px;
+  width: var(--shape-bonus-frame-width);
 }

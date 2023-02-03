@@ -1,23 +1,22 @@
 .outcome {
-  min-width: 200px;
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
-  gap: 3rem;
-  margin-inline: 5rem;
+  gap: 2rem;
 }
 
 .outcome_result {
-  font-size: 4rem;
+  font-size: 3rem;
   font-weight: 700;
 }
 
 .outcome_button {
   background-color: white;
   color: var(--dark-text);
-  padding: 1rem;
+  padding: 1rem 2rem;
   border-radius: 8px;
-  font-size: 1.1rem;
+  font-size: var(--button-font-size);
   font-weight: 700;
   letter-spacing: 0.25ch;
   transition: all 200ms ease-in-out;
@@ -26,4 +25,30 @@
 
 .outcome_button:hover {
   color: hsl(349, 70%, 56%);
+}
+
+@media (min-width: 768px){
+  .outcome {
+    min-width: 160px;
+    gap: 1.5rem;
+  }
+  
+  .outcome_result {
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 1024px){
+  .outcome {
+    min-width: 200px;
+    gap: 3rem;
+  }
+  
+  .outcome_result {
+    font-size: 3.5rem;
+  }
+
+  .outcome_button {
+    padding: 1rem 3rem;
+  }
 }

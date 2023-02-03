@@ -33,17 +33,23 @@ export default function Result() {
 
 	return (
 		<div className={styles.result}>
-			<Pick
-				title='You Picked'
-				shape={state.userPick}
-				isWinner={state.result === 'You Win'}
-			/>
-			{state.isHousePicked && <Outcome />}
-			<Pick
-				title='The House Picked'
-				shape={state.housePick}
-				isWinner={state.result === 'You Lose'}
-			/>
+			<div className={styles.result_user_pick}>
+				<Pick
+					title='You Picked'
+					shape={state.userPick}
+					isWinner={state.result === 'You Win'}
+				/>
+			</div>
+			<div className={styles.result_outcome}>
+				{state.isHousePicked && <Outcome />}
+			</div>
+			<div className={styles.result_house_pick}>
+				<Pick
+					title='The House Picked'
+					shape={state.housePick}
+					isWinner={state.result === 'You Lose'}
+				/>
+			</div>
 		</div>
 	);
 }

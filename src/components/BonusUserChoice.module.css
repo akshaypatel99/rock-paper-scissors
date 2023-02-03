@@ -1,10 +1,11 @@
 .choice_container {
-  width: 480px;
+  width: var(--container-size);
+  max-width: 300px;
   aspect-ratio: 1;
   background-image: url('/images/bg-pentagon.svg');
   background-repeat: no-repeat;
   background-position: 50%;
-  background-size: 80%;
+  background-size: var(--choice-bonus-bg-size);
   position: relative;
 }
 
@@ -15,8 +16,8 @@
 
 .choice_container > div:first-child {
   top: 20%;
-  left: -5%;
-  transform: translate(5%, 20%);
+  left: 0;
+  transform: translate(0, 20%);
 }
 .choice_container > div:nth-child(2) {
   bottom: 0;
@@ -35,6 +36,38 @@
 }
 .choice_container > div:last-child {
   top: 20%;
-  right: -5%;
-  transform: translate(-5%, 20%);
+  right: 0;
+  transform: translate(0, 20%);
+}
+
+@media (min-width: 768px){
+  .choice_container {
+    max-width: 420px;
+  }
+
+  .choice_container > div:first-child {
+    top: 20%;
+    left: -5%;
+    transform: translate(5%, 20%);
+  }
+  .choice_container > div:nth-child(2) {
+    bottom: 5%;
+    left: 20%;
+    transform: translate(-20%, 5%);
+  }
+  .choice_container > div:nth-child(3) {
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0%);
+  }
+  .choice_container > div:nth-child(4) {
+    bottom: 5%;
+    right: 20%;
+    transform: translate(20%, 5%);
+  }
+  .choice_container > div:last-child {
+    top: 20%;
+    right: -5%;
+    transform: translate(-5%, 20%);
+  }
 }

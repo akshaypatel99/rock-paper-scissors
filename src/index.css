@@ -4,12 +4,7 @@
   font-family: 'Barlow Semi Condensed', Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 24px;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  
-
+  font-weight: 600;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -25,6 +20,7 @@
   padding: 0;
   box-sizing: border-box;
   text-transform: uppercase;
+  color: white;
 }
 
 body,
@@ -77,11 +73,6 @@ select {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-}
-
-a {
-  text-decoration: none;
-  color: hsl(var(--color-text));
 }
 
 body {

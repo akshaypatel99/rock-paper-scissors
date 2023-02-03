@@ -16,9 +16,9 @@ function App() {
 		<main className='App'>
 			<Header />
 			{state.mode === 'classic' ? <Game /> : <BonusGame />}
-			<Modal showModal={showModal} setShowModal={setShowModal} />
-			<ModalButton showModal={showModal} setShowModal={setShowModal} />
 			<BonusGameButton />
+			<ModalButton showModal={showModal} setShowModal={setShowModal} />
+			<Modal showModal={showModal} setShowModal={setShowModal} />
 		</main>
 	);
 }

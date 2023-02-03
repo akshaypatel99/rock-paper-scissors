@@ -8,5 +8,42 @@
   --dark-text: hsl(229, 25%, 31%);
   --score-text: hsl(229, 64%, 46%);
   --header-outline: hsl(217, 16%, 45%);
+  --shape-width: 90px;
+  --shape-frame-width: 110px;
+  --shape-pick-width: 100px;
+  --shape-pick-frame-width: 130px;
+  --choice-bg-size: 225px;
+  --choice-bonus-bg-size: 225px;
+  --shape-bonus-width: 70px;
+  --shape-bonus-frame-width: 90px;
+  --button-font-size: 1rem;
+  --container-size: 90%;
+  --shadow-inset: inset 0px 6px 2px hsla(0, 0%, 0%, 0.2);
+  --shadow-frame-inset: inset 0px -8px 2px hsla(0, 0%, 0%, 0.2);
+  --shadow-winner: var(--shadow-inset), 0px 0px 0px 40px hsla(0, 0%, 100%, 0.07), 0px 0px 0px 60px hsla(0, 0%, 100%, 0.05), 0px 0px 0px 80px hsla(0, 0%, 100%, 0.025);
 }
 
+@media (min-width: 768px){
+  :root {
+    --shape-width: 150px;
+    --shape-frame-width: 200px;
+    --shape-pick-width: 150px;
+    --shape-pick-frame-width: 200px;
+    --choice-bg-size: 80%;
+    --choice-bonus-bg-size: 80%;
+    --shape-bonus-width: 120px;
+    --shape-bonus-frame-width: 160px;
+    --button-font-size: 1.125rem;
+    --container-size: 90%;
+    --shadow-inset: inset 0px 10px 2px hsla(0, 0%, 0%, 0.2);
+    --shadow-frame-inset: inset 0px -12px 2px hsla(0, 0%, 0%, 0.2);
+    --shadow-winner: var(--shadow-inset), 0px 0px 0px 80px hsla(0, 0%, 100%, 0.07), 0px 0px 0px 130px hsla(0, 0%, 100%, 0.05), 0px 0px 0px 180px hsla(0, 0%, 100%, 0.025);
+  }
+}
+
+@media (min-width: 1024px){
+  :root {
+    --shape-pick-width: 200px;
+    --shape-pick-frame-width: 260px;
+  }
+}

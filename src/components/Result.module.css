@@ -1,5 +1,43 @@
 .result {
-  min-width: 600px;
-  display: flex;
-  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-areas:
+    'user house'
+    'outcome outcome'
+  ;
+  grid-template-columns: repeat(2, 50%);
+  row-gap: 2rem;
+  column-gap: 0.4rem;
+}
+
+.result_user_pick {
+  grid-area: user;
+}
+.result_house_pick {
+  grid-area: house;
+
+}
+.result_outcome {
+  grid-area: outcome;
+}
+
+@media (min-width: 768px){
+  .result {
+    min-width: 680px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .result > div {
+    min-width: 200px;
+  }
+}
+
+@media (min-width: 1024px){
+  .result {
+    gap: 5rem;
+  }
 }

@@ -11,6 +11,7 @@ export default function BonusGameButton() {
 		<button
 			className='button switch-mode'
 			disabled={state.isUserPicked}
+			data-disabled={state.isUserPicked}
 			onClick={switchGames}>
 			{state.mode === 'classic' ? 'Bonus Mode' : 'Classic Mode'}
 		</button>
